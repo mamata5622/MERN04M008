@@ -1,0 +1,42 @@
+/*@import url(index2.css);
+h2{
+    background-color: blueviolet;
+}*/
+/*{
+    color: greenyellow;
+    font-size: 20px;
+}*/
+#heading3{
+    background-color: cornflowerblue    ;
+}
+.class1{
+    background-color: chocolate;
+}
+
+h3,span,p{
+    background-color: darkolivegreen;
+}
+
+div p{
+    background-color: darkorchid;
+}
+
+p>b{
+    background-color: darkorange;
+}
+
+div+p{
+    background-color: forestgreen;
+}
+
+div~p{
+    background-color: grey;
+}
+.box{
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+}
+.box:hover{
+    background-color: green;
+}
