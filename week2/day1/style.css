@@ -1,0 +1,56 @@
+.box{
+    color: blueviolet;
+    width: 200px;
+    height: 100px;
+    border: 2px solid black;
+}
+
+.box:hover{
+    background-color: blue;
+}
+.box:active{
+    background-color: aquamarine;
+}
+input:focus{
+    background-color: greenyellow;
+}
+ul li:first-child{
+    background-color: blueviolet;
+}
+ul li:last-child{
+    background-color: brown;
+}
+ul li:nth-child(4){
+    background-color: burlywood;
+}
+a:visited{
+    background-color: chocolate;
+}
+p[class="para1"]{
+    background-color: chartreuse;
+}
+.container{
+    /* height: 100px; */
+     width: 200px;
+    border: 2px dotted green;
+    /* padding-top: 20px;
+    padding-right: 30px; */
+    padding: 20px 30px;
+    margin: 20px 10px 40px 30px;
+    /* margin: auto; */
+}
+/* .container p::first-line{
+    color: crimson;
+}
+.container p::first-letter{
+    color: yellowgreen;
+}
+.container p::before{
+    content: "qlith";
+}
+.container p::after{
+    content: "qlith";
+}
+.container p::selection{
+    background-color: darkcyan;
+} */
