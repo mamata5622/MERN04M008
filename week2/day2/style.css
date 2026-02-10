@@ -1,0 +1,36 @@
+p{
+    background-color: aquamarine;
+    display: inline;
+}
+span{
+    background-color: bisque;
+    display: block;
+    width:230px;
+}
+h1{
+    background-color: cadetblue;
+    display: inline-block;
+    /* display: none; */
+    width:200px;
+}
+/* display : flex */
+.container{
+    width: 500;
+    height: 400;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    /* flex-direction: column-reverse; */
+    /* flex-direction: row-reverse; */
+    /* gap: 4px; */
+    flex-wrap:wrap;
+    /* justify-content: space-around; */
+    /* justify-content: space-between; */
+    justify-content: space-evenly;
+}
+.item{
+    width: 100px;
+    height: 100px;
+    background-color: chocolate;
+    border: 2px solid black;
+}
