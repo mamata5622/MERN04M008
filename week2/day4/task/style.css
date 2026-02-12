@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.container{
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: 500px 300px;
+}
+body{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.wel-pg{
+    border: 1px solid black;
+    height: 300px;
+    padding: 40px;
+    background: linear-gradient(60deg,rgba(255, 0, 0, 0.633),blue);
+    color: whitesmoke;
+    font-size: 15px;
+}
+.heading{
+    padding-top: 20px;
+    text-align: center;
+}
+.login{
+    border: 1px solid black;
+    text-align: center;
+    padding-top: 100px;
+}
+.input{
+    margin-top: 60px;
+}
+.login input{
+    width: 250px;
+    padding: 2px;
+    border-radius: 10px;
+}
+.login h3{
+    color: rgb(110, 97, 226);
+}
+.icon p{
+    text-align: end;
+    padding-right: 20px;
+}
+.btn{
+    margin-top: 70px;
+    width: 80px;
+    padding: 5px;
+    border-radius: 30px;
+    color: aliceblue;
+    font-weight: bolder;
+    background:linear-gradient(to left,rgba(0, 0, 255, 0.684),purple);
+    border: none;
+}

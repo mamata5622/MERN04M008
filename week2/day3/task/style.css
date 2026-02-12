@@ -7,11 +7,12 @@
     height: 600px;
     border: 1px solid black;
     margin: 100px;
+    background: linear-gradient(rgb(255, 0, 247),blue);
 }
 .login-pg{
     width: 300px;
     height: 400px;
-    border: 2px solid black;
+    border: 1px solid black;
     margin: 100px 100px; 
     text-align: center;  
     border-radius: 10px;
@@ -20,7 +21,7 @@
 .heading{
     width: 300px;
     height: 50px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-size: 25px;
     font-weight: bold;
     margin-top:70px;
@@ -28,7 +29,7 @@
 .input{
     width: 300px;
     height: 200px;
-    border: 1px solid black; 
+    /* border: 1px solid black;  */
     margin-top:10px;
 }
 .mail{
@@ -45,38 +46,34 @@
     width: 250px;
     height: 30px;
     margin-top: 15px;
-    font-size:20px;
+    /* font-size:20px; */
     font-weight: 700;
+    background: linear-gradient(rgba(244, 48, 198, 0.756),rgb(65, 65, 240));
+    border-radius: 3px;
+    border: none;
+    outline: none;
 }
-/* .gallary{
-    width: 600px;
-    height: 600px;
-    border: 1px solid black;
-    display: flex;
-    /* flex-wrap: wrap; */
-    /* grid-template-columns: repeat(3, fr);
-    grid-template-rows: repeat(4, 1fr); */
- 
-
 .gallary-grid{
-    width: 600px;
-    height: 500px;
+    display: grid;
     border: 1px solid blue;
     display: grid;
-    grid-template-columns: 200px 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows:100px ;
 }
 .grid{
     border: 1px solid black;    
 }
+.grid img{
+    width: 100%;
+    
+}
 .item1{
-    background-image: url(https://images.wallpapersden.com/image/download/starry-landscape-4k-cool-blue-moon_bW5tbG6UmZqaraWkpJRobWllrWdma2U.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 
 }
-.item2{
+/* .item2{
     background-image: url(https://wallpaperaccess.com/full/81235.jpg);
     background-position:center;
     background-size: cover;
@@ -86,7 +83,7 @@
     background-image: url(https://tse1.mm.bing.net/th/id/OIP.ZR6Dp1J9BgS8-mNRUjwbBwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3);
     background-position: center;
     background-size: cover;
-}
+}  */
     
     
 
