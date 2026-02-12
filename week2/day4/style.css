@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.login-box{
+    width: 300px;
+    /* height: 390px; */
+    padding: 40px;
+    border:1px solid black;
+    background:linear-gradient( rgba(0, 255, 255,0.833), white);
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+}
+.logo{
+    text-align: center;
+    padding: 10px;
+
+}
+.logo span{
+    /* background-color: aquamarine; */
+    padding:10px 9px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 4px black;
+}
+.headercontent{
+    padding:5px;
+
+}
+.headercontent h1{
+    font-size: 20px;
+    text-align: center;
+    padding: 4px;
+}
+.headercontent p{
+    text-align: center;
+    color: darkslategrey;
+    padding: 2px;
+}
+form{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+form input{
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color:rgba(128,128,128,0.429) ;
+    box-shadow: 1px 2px cadetblue;
+
+}
+form input::placeholder{
+    color: gray;
+    font-weight: 400px;
+}
+form p{
+    color: gray;
+    font-size: 15px;
+    text-align: end;
+    color: rgba(0, 0, 0, 0.489);
+}
+form button{
+    padding: 5px;
+    border: none;
+    background-color:black;
+    color: white;
+    border-radius: 15px;
+    font-weight: 200px;
+    
+}
+form button:hover{
+    background-color: rgb(88, 88, 203);
+    cursor: pointer;
+    
+}
+.normal-t{
+    font-size: 15px;
+    text-align: center;
+    color: gray;
+}
+.normal-t::after,.normal-t::before{
+    content:"......."; 
+}
+.links{
+    padding:5px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.links div{
+    padding:5px 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    
+
+}
+.links div:hover{
+    cursor: pointer;
+}
+.links button{
+    padding:5px 30px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    border: none;
+}
+.links div .fa-facebook{
+    color: rgb(20, 20, 163);
+}
+
