@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.container{
+    border: 1px solid black;
+    width: 700px;
+    height: 500px;
+    display: flex;
+    
+}
+.box{
+    width: 550px;
+    height: 450px;
+    background-color: rgb(235, 228, 220);
+    margin-top: 10px;
+}
+.box-nav{
+    width: 700px;
+    height: 50px;
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    
+}
+.box-nav .logo{
+    margin-left: 5px;
+    display: flex;
+    color: rgb(7, 7, 179);
+}
+.logo h3{
+    padding-left: 4px;
+}
+.box-nav .logo img{
+    height: 20px;
+    width: 20px;
+}
+.box-nav ul{
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin-left: 270px;
+}
+.box-nav ul li:hover{
+    cursor: pointer;
+    color: blue;
+}
+
+.signup-btn{
+    width: 100px;
+    height: 20px;
+    margin-left: 100px;
+    background-color: white;
+}
+.content{
+    margin-top: 20px;
+    display: flex;
+    /* border: 1px solid black; */
+    height: 300px;
+
+}
+.content h1{
+    width: 300px;
+    /* border: 1px solid black; */
+    margin-left: 30px;
+    margin-top: 20px;
+    color: rgb(9, 9, 160);
+}
+.img1{
+    margin-left: 30px;
+    width: 300px;
+}
+.inputs p{
+    font-size: 14px;
+}
+.content .inputs{
+    width: 100px;
+}
+.search-btn{
+    background-color: red;
+    border-radius: 2px;
+    border: none;
+    width: 60px;
+    padding: 4px;
+}
+.cont-nav{
+    /* display: flex; */
+    width: 300px;
+    margin-top: 20px;
+    margin-left: 30px;
+    /* border: 1px solid black; */
+    background-color: white;
+}
