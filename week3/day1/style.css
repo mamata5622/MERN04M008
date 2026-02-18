@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(89, 255, 0);
+    margin: auto;
+    margin-top: 50px;
+    /* transition: all 2s steps(4);  */
+    /* transition-property:all; */
+    /* transition-duration: 2s; */
+    /* transition-timing-function: ease-in-out; */
+
+    
+    /* animation-name: move;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse; */
+
+
+    animation: changecolor 10s linear infinite;
+    
+}
+.box:hover{
+    /* background-color: blueviolet; */
+    /* transform: scale(2); */
+    /* transform: scaleX(2); */
+    /* transform: scaleY(3); */
+    /* transform: rotate(45deg); */
+    /* transform: rotateX(45deg); */
+    /* transform: rotatey(180deg); */
+    /* transform: rotate(45rad); */
+    /* transform: translatey(100px); */
+    /* transform: translate(150px); */
+    /* transform: scale(3) rotate(45deg) translate(100px); */
+    /* transform: scalex(2);
+    transform-origin: top; */
+    /* transform: skew(90deg); */
+}
+/* @keyframes move{
+    from{
+        background-color: blueviolet;
+        transform: translate(300px);
+    }
+    to{
+        background-color: aquamarine;
+        transform: translate(0);
+    }
+} */
+@keyframes changecolor{
+    0%{
+        background-color: red;
+    }
+    25%{
+        background-color: blueviolet;
+    }
+    50%{
+        background-color: brown;
+    }
+}
