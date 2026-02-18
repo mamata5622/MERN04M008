@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    margin: auto;
+    margin-top: 50px;
+    width: 800px;
+    height: 500px;
+    border: 1px solid black;
+    background-image: url(https://th.bing.com/th/id/R.18f8fa496bee7b6f7dbd7981a8a9977a?rik=WmG4waE7oXH%2bPQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fc%2ff%2fd%2f351159.jpg&ehk=ttQuKt3%2fTHuozJy0YI9OxreviBYyB9dEhhomOjbCsHk%3d&risl=&pid=ImgRaw&r=0);
+    background-position: center;
+    background-size: cover;
+}
+.nav-bar{
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+.nav-bar h2{
+    color: rgb(199, 109, 6);
+}
+.nav-bar ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+.nav-bar ul li{
+    color: white;
+    font-size: 12px;
+}
+.nav-bar ul li:hover{
+    color: rgb(199, 109, 6);
+}
+.search-tab{
+    display: flex;
+    /* margin-left: 70px; */
+    border: 1px solid rgb(199, 109, 6);
+    color: white;
+}
+.search-tab .type{
+    margin-right: 50px;
+    padding: 3px;
+    font-size: 13px;
+    align-content: center;
+}
+.search-tab button{
+    background-color: rgb(199, 109, 6);
+    color: white;
+    border: none;
+    padding: 5px;
+}
+.box{
+    margin: 20px;
+    margin-top: 80px;
+    display: flex;
+    color: white;
+}
+.box1,.box2{
+    width: 380px;
+}
+.box1 h2{
+    font-size: 30px;
+}
+.box1 h1{
+    font-size: 40px;
+    color: rgb(199, 109, 6);
+}
+.box1 p{
+    font-size: 13px;
+}
+.box1 button{
+    margin-top: 20px;
+    padding: 7px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 7px;
+    border: none;
+    background-color: rgb(199, 109, 6);
+}
+.login{
+    width: 200px;
+    text-align: center;   
+    border: 1px solid black;
+    margin-left: 170px;
+}
+.login h3{
+    background-color: white;
+    color: rgb(199, 109, 6);
+    margin: 10px;
+    padding: 3px;
+    border-radius: 5px;
+}
+.login input{
+    border-radius: 4px;
+    padding: 6px;
+    border: none;
+    
+}
+.login .int1{
+    margin-top: 15px;
+}
+.login .int2{
+    margin-top: 2px;
+}
+.login button{
+    padding: 6px;
+    width: 170px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(199, 109, 6);
+}
+.login p{
+    margin: 10px 20px;
+}
+.login a{
+    color: rgb(199, 109, 6);
+}
+.login .icons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 2px;
+}
