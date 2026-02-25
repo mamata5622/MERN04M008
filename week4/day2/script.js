@@ -62,6 +62,7 @@ let variable="hello";
 
 console.log(variable)
 
+
 // declare at block 
 
 {
