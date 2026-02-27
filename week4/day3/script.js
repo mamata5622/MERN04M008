@@ -81,3 +81,13 @@ console.log(obj.childObj.nextChildObj.nextname)
 // Array
 let arr=[1,2,4,"hello",false,{name:"xy"},[5,6]];
 console.log(arr[5].name);
+
+const product={
+    name:"mno",
+    price:99.99,
+    instock:true
+}
+console.log(product.name)
+console.log(product.price)
+console.log(product.instock)
+console.log(product)
