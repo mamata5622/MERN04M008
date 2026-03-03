@@ -24,9 +24,9 @@ for(let i=1;i<=10;i++){
 }
 
 // question4. Find the factorial of a number.
-let N=6
+let x=6
 let fac=1;
-for(let i=1;i<=N;i++){
+for(let i=1;i<=x;i++){
     fac=fac*i;
     console.log("factorial no:",fac)
 }
