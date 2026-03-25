@@ -49,5 +49,5 @@ form1.addEventListener("submit",(e)=>{
 
     console.log(name,age,email)
 
-    localStorage.setItem("user".JSON.stringify({name,age,email}));
+    localStorage.setItem("user",JSON.stringify({name,age,email}));
 })

@@ -3,7 +3,7 @@
 let cont=document.querySelector("#box");
 console.log(cont);
 cont.addEventListener("click",(e)=>{
-    console.log("click")
+    console.log("e.type")
     console.log(e)
 })
 
