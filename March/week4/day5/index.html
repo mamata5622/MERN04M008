@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blinkit-clone</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+</head>
+<body>
+    <!-- nav -->
+    <nav class="grid grid-cols-2 lg:grid lg:grid-cols-5 p-3 pl-10 pr-10 items-center shadow-md flex sticky z-10 top-0 bg-white">
+        <div class="md:hidden lg:flex text-[45px] font-bold text-yellow-500">
+            blink<span class="text-green-500 ">it</span>
+        </div>
+        <div class="">
+            <div class="text-[20px] font-semibold">
+                Delivery in 20 minutes</div>
+            <div>
+                bhubneshwer,Odisha
+            </div>
+        </div>
+        <div class=" p-3 pr-160 rounded-[10px] md:hidden lg:flex items-center bg-gray-100">
+            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+            <input type="search" placeholder="search">
+        </div>
+        <div class="text-[20px] sm:hidden lg:flex ml-100">Login</div>
+        <div class="bg-gray-300 font-semibold p-4 rounded-[10px] flex items-center text-white hidden lg:flex ml-45"><i class="fa-solid fa-cart-shopping fa-xl "></i>
+            <p class="text-[18px] font-bold ">My cart</p>
+        </div>
+        <div class="text-[20px] lg:hidden md:ml-90">
+            <i class="fa-regular fa-circle-user fa-xl"></i>
+        </div>
+        <div class="bg-gray-100 rounded-[10px] md:w-200 lg:hidden">
+            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+            <input type="search" placeholder="search" class="p-2 text-[20px]">
+        </div>
+    </nav>
+    <!-- grocery items in mediumscreen -->
+    <p class="font-bold lg:hidden m-3 text-[18px]">Grocery & Kitchen</p>
+    <div class="grid grid-rows-2 grid-cols-4 gap-2 lg:hidden">
+        <div class="bg-indigo-50 flex justify-center rounded-[15px]">
+            <img src="http://cdn.grofers.com/app/images/collections/asset_Vegetables_&_Fruits_312x360_1765863495231" alt="" width="40%">
+        </div>
+        <div class="bg-indigo-50 flex justify-center rounded-[15px]">
+            <img src="https://cdn.grofers.com/app/images/collections/asset_atta,_rice_&_dal_1697023078302" alt="" width="40%">
+        </div>
+        <div class="bg-indigo-50 flex justify-center rounded-[15px]">
+            <img src="http://cdn.grofers.com/app/images/collections/asset_Oil,_ghee_&_masala_1697023177309" alt="" width="40%">
+        </div>
+        <div class="bg-indigo-50 flex justify-center rounded-[15px]">
+            <img src="https://cdn.grofers.com/app/images/collections/asset_Dairy,_bread_&_eggs_1697439479199" alt="" width="40%">
+        </div>
+        <div class="bg-indigo-50 flex justify-center rounded-[15px]">
+            <img src="http://cdn.grofers.com/app/images/collections/asset_Biscuits_&_bakery_1697023878012" alt="" width="40%">
+        </div>
+        <div class="bg-indigo-50 flex justify-center rounded-[15px]">
+            <img src="http://cdn.grofers.com/app/images/collections/asset_Dry_Fruits_&_Cereals_(1)_1727547591238" alt="" width="40%">
+        </div>
+        <div class="bg-indigo-50 flex justify-center rounded-[15px]">
+            <img src="http://cdn.grofers.com/app/images/collections/asset_chicken,_meat_&_fish_1697025365538" alt="" width="40%">
+        </div>
+        <div class="bg-indigo-50 flex justify-center rounded-[15px]">
+            <img src="http://cdn.grofers.com/app/images/collections/asset_Kitchen_Utensils_&_1697802997422" alt="" width="40%">
+        </div>
+    </div>
+    <!-- first image in largescreen-->
+     <a href="/March/week4/day5/dailystock.html"><div class="ml-35 mr-35 mt-1 lg:flex hidden">
+        <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=2700/layout-engine/2026-01/Frame-1437256605-2-2.jpg" alt="" class="">
+    </div></a>
+    
+    <!--second line 3 images  -->
+    <div class="ml-40 mr-40 mt-7 flex gap-5 lg:flex hidden">
+        <div class="">
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=720/layout-engine/2023-07/pharmacy-WEB.jpg" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=720/layout-engine/2026-01/pet_crystal_WEB-1.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=720/layout-engine/2026-01/baby_crystal_WEB-1.png" alt="">
+        </div>
+    </div>
+    <!-- items grid of ten cols 2 rows -->
+    <div class="grid grid-cols-10 ml-35 mr-35 mt-1 ">
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-12/paan-corner_web.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-2_10.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-3_9.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-4_9.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-5_4.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-6_5.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-7_3.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-8_4.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2025-11/Slice-7-1_0.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-10.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-11.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-12.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-13.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-14.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-15.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-16.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-17.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-18.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-19.png" alt="">
+        </div>
+        <div>
+            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-20.png" alt="">
+        </div>
+    </div>
+</body> 
+</html>
