@@ -9,6 +9,7 @@ function App() {
     e.preventDefault();
     console.log("Name:", name);
     console.log("Email:", email);
+    localStorage.setItem("user",JSON.stringify({name,email}))
   };
 
   return (

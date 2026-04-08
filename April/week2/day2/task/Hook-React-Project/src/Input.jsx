@@ -3,17 +3,21 @@ import React, { useEffect, useState } from "react";
 function Input() {
   const [fullname, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [isShow, setIsShow] = useState(false);
 
-  const handleSubmit =()=> {
-    console.log("FullName:",fullname);
-    console.log("Email:",email)
-    setFullName("")
-    setEmail("")
+  const handleSubmit = () => {
+    // console.log("FullName:", fullname);
+    // console.log("Email:", email);
     localStorage.setItem("user", JSON.stringify({ fullname, email }));
-  }
-  useEffect(()=>{
-    console.log({fullname,email})
-  },[fullname,email])
+    setIsShow(true);
+    if (!isShow) {
+      setFullName("");
+      setEmail("");
+    }
+  };
+  useEffect(() => {
+    console.log({ fullname, email });
+  }, [fullname, email]);
 
   return (
     <>
@@ -41,7 +45,13 @@ function Input() {
           <button onClick={handleSubmit}>Submit</button>
         </div>
       </div>
-      
+
+      {isShow && (
+        <div>
+          Name : {fullname}
+          Email :{email}
+        </div>
+      )}
     </>
   );
 }
