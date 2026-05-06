@@ -15,7 +15,7 @@ function Login() {
   }
   function handleSubmit(e){
     e.preventDefault()
-    localStorage.getItem("users",JSON.parse(FormData))
+    localStorage.getItem("users",JSON.parse('FormData'))
     if(storeddata&&storeddata.email===FormData.email&&storeddata.Password===FormData.Password){
         navigate("/dash")
     }else{
