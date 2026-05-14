@@ -1,0 +1,10 @@
+const validation=async(rer,res,next)=>{
+    try {
+        console.log("this is my validation middleware.")
+        next()
+    } catch (error) {
+       res.status(500),json({message:"failed in the validation middleware"})
+    }
+}
+
+module.exports=validation
