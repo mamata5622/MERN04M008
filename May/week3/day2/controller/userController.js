@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const createUser = async (req, res) => {
     try {
@@ -37,5 +38,33 @@ const createUser = async (req, res) => {
     } catch (error) {
         console.log(error.message)
         res.send("failed to create")
+    }
+}
+const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        if (!email || !password) {
+            res.status(404).json({ message: "fill the field" })
+        }
+
+        const existingUser = await User.findOne({ email });
+
+        if (!existingUser) {
+            res.status(404).json({ message: "Invalid email" });
+        }
+
+        bcrypt.compare(password, existingUser.password, async function (err, result) {
+            if (!result) {
+                res.status(401).json({ message: "Invalid Password" })
+            } else {
+
+                const token = await jwt.sign({ user: existingUser }, process.env.JWT_SECRET_KEY, { expiresIn: process.env.EXPIRESIN });
+
+                res.status(200).json({ message: "Login successfull", token })
+            }
+        });
+
+    } catch (error) {
+        res.status(500).json({ message: "failed to login" })
     }
 }
