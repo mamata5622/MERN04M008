@@ -9,21 +9,6 @@ import Education from './components/Education'
 import Contact from './components/Contact'
 
 function App() {
-  
-  let skills = [
-    {
-      icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBd2rMcfI56SZEenhvautbZl_xUsPSHaktNw&s",
-      title: "HTML",
-    },
-    {
-      icon: "",
-      title: "CSS",
-    },
-    {
-      icon: "",
-      title: "JS",
-    },
-  ];
 
   return (
     <>
