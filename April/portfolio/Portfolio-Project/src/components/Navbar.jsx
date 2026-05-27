@@ -4,31 +4,34 @@ import { Link } from 'react-router'
 
 function Navbar() {
   return (
-    <div className='shadow-sm text-white p-5 flex justify-around items-center fixed top-0 w-full z-20 bg-purple-900'>
-        <div>
-            <h1 className='text-[20px] font-extrabold lg:text-[30px]'>Behera<span className='text-pink-800'>Mamata</span></h1>
+    <div className='shadow-sm shadow-gray-800 text-white backdrop-blur-sm p-3 flex justify-between items-center fixed top-0 w-full z-20 bg-black/70'>
+        <div className='ml-10'>
+            <h1 className='text-[20px] font-extrabold lg:text-[30px]'>BMamata</h1>
         </div>
-        <ul className='gap-15 justify-center lg:text-[20px] cursor-pointer font-medium hidden sm: block md:flex'>
-            <li className='hover:text-pink-800'>
+        <ul className='gap-15 justify-center lg:text-[15px] font-medium hidden lg:flex mr-10'>
+            <li className='hover:text-indigo-300 hover:bg-gray-900 rounded-md p-1 cursor-pointer'>
                 <Link to='/'>Home</Link>
             </li>
-            <li className='hover:text-pink-800'>
+            <li className='hover:text-indigo-300 hover:bg-gray-900 rounded-md p-1 cursor-pointer'>
                 <Link to='/about'>About</Link>
             </li>
-            <li className='hover:text-pink-800'>
+            <li className='hover:text-indigo-300 hover:bg-gray-900 rounded-md p-1 cursor-pointer'>
+                <Link to='/education'>Education</Link>
+            </li>
+            <li className='hover:text-indigo-300 hover:bg-gray-900 rounded-md p-1 cursor-pointer'>
                 <Link to='/skills'>Skills</Link>
             </li>
-            <li className='hover:text-pink-800'>
+            <li className='hover:text-indigo-300 hover:bg-gray-900 rounded-md p-1 cursor-pointer'>
                 <Link to='/project'>Project</Link>
             </li>
-            {/* <li className='hover:text-pink-800'>
-                <Link to='/education'>Education</Link>
-            </li> */}
-            <li className='hover:text-pink-800'>
-                <Link to='/education'>Contact</Link>
+            <li className='hover:text-indigo-300 hover:bg-gray-900 rounded-md p-1 cursor-pointer'>
+                <Link to='/achievements'>Achievements</Link>
+            </li>
+            <li className='hover:text-indigo-300 hover:bg-gray-900 rounded-md p-1 cursor-pointer'>
+                <Link to='/contact'>Contact</Link>
             </li>
         </ul>
-        <div className='flex md:hidden'>
+        <div className='flex mr-10 lg:hidden text-[20px] hover:bg-gray-900 rounded-md p-1 cursor-pointer'>
           <FaBars />  
         </div>
     </div>
