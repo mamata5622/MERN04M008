@@ -24,7 +24,7 @@ exports.createVehicle = async (req, res) => {
       !thumbnail
     ) {
       res
-        .status(400)
+        .status(200)
         .json({ success: false, message: "kindly send the detail" });
     }
 
@@ -41,15 +41,20 @@ exports.createVehicle = async (req, res) => {
     });
 
     if (!vehicle) {
-      res.status(400).json({ success: false, message: "failed to create" });
+      res.status(200).json({ success: false, message: "failed to create" });
     }
     res
       .status(201)
       .json({ success: true, message: "successfully created", vehicle });
-  } catch (error) {
-    res.status(500).json({ success: false, message: "something gone wrong", error:error.message, });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "something gone wrong",
+      error: err.message,
+    });
   }
 };
+
 exports.getAllVehicles = async (req, res) => {
   try {
     const vehicles = await Vehicle.find();
@@ -98,7 +103,7 @@ exports.updateVehicle = async (req, res) => {
 
     if (!updateVehicle) {
       res
-        .status(400)
+        .status(200)
         .json({ success: false, message: "some error in updating" });
     }
 
@@ -121,7 +126,7 @@ exports.deleteVehicle = async (req, res) => {
     const deleteVehicle = await Vehicle.findByIdAndDelete(id);
 
     if (!deleteVehicle) {
-      res.status(400).json({
+      res.status(200).json({
         success: false,
         message: "some error when delete the vehicle",
       });
@@ -143,7 +148,7 @@ exports.updateAvailablity = async (req, res) => {
     const existingVehicle = await Vehicle.findById(id);
 
     if (existingVehicle.isAvailable === false) {
-      res.status(400).json({ success: false, message: "already booked" });
+      res.status(200).json({ success: false, message: "already booked" });
     } else {
       await Vehicle.findByIdAndUpdate(
         id,

@@ -10,7 +10,7 @@ function Navbar() {
         <div className="flex items-center gap-10">
           {/* LOGO */}
           <div className="flex items-center gap-3 cursor-pointer">
-            <div className="bg-black text-white p-2 rounded-xl">
+            <div className="bg-blue-900 text-white p-2 rounded-xl">
               <Car size={24} />
             </div>
 

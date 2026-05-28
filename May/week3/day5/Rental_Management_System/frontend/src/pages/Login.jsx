@@ -10,9 +10,9 @@ function Login() {
       {/* LOGIN CONTAINER */}
       <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
         {/* LEFT SIDE */}
-        <div className="hidden lg:flex flex-col justify-center bg-black text-white p-12 relative">
+        <div className="hidden lg:flex flex-col justify-center bg-blue-950 text-white p-12 relative">
           <div className="absolute top-6 left-6 flex items-center gap-3">
-            <div className="bg-white text-black p-2 rounded-xl">
+            <div className="bg-white text-blue-950 p-2 rounded-xl ">
               <Car size={28} />
             </div>
 
@@ -64,7 +64,7 @@ function Login() {
 
           <div className="mb-8">
             <h2 className="text-4xl font-bold text-gray-900">
-              Welcome Back 👋
+              Welcome Back !!
             </h2>
 
             <p className="text-gray-500 mt-2">
@@ -131,18 +131,18 @@ function Login() {
             </div>
 
             {/* LOGIN BUTTON */}
-            <button className="w-full bg-black hover:bg-gray-900 text-white py-4 rounded-2xl font-semibold text-lg transition duration-300 shadow-lg">
+            <button className="w-full bg-blue-950 hover:bg-gray-900 text-white py-4 rounded-2xl font-semibold text-lg transition duration-300 shadow-lg">
               Login
             </button>
           </form>
 
           {/* FOOTER */}
           <p className="text-center text-gray-500 text-sm mt-2">
-            if you are new user 
+            Don't have an account ?
             <Link 
             to='/register'
             className="text-black font-medium hover:underline"
-            >Register</Link>
+            > Register now</Link>
           </p>
           <p className="text-center text-gray-500 text-sm mt-2">
             © 2026 RentRide. All rights reserved.
