@@ -1,18 +1,65 @@
 import React, { useState } from "react";
 import { Car, Eye, EyeOff, Mail, LockKeyhole } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { value, name } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleLogin = async () => {
+    try {
+      const res = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/auth/login`,
+        formData,
+      );
+      
+      if (res.data.success) {
+        const token = res.data.token;
+        const user = res.data.user;
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
+        setFormData({
+          email: "",
+          password: "",
+        });
+
+        if(user.role==="user"){
+          navigate("/profile");
+        }else{
+          navigate("/admin");
+        }
+        toast.success(res.data.message);
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center px-4">
       {/* LOGIN CONTAINER */}
       <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
         {/* LEFT SIDE */}
-        <div className="hidden lg:flex flex-col justify-center bg-blue-950 text-white p-12 relative">
+        <div className="hidden lg:flex flex-col justify-center bg-black text-white p-12 relative">
           <div className="absolute top-6 left-6 flex items-center gap-3">
-            <div className="bg-white text-blue-950 p-2 rounded-xl ">
+            <div className="bg-white text-black p-2 rounded-xl">
               <Car size={28} />
             </div>
 
@@ -64,7 +111,7 @@ function Login() {
 
           <div className="mb-8">
             <h2 className="text-4xl font-bold text-gray-900">
-              Welcome Back !!
+              Welcome Back 👋
             </h2>
 
             <p className="text-gray-500 mt-2">
@@ -73,7 +120,7 @@ function Login() {
           </div>
 
           {/* FORM */}
-          <form className="space-y-6">
+          <div className="space-y-6">
             {/* EMAIL */}
             <div>
               <label className="text-sm font-medium text-gray-700">
@@ -87,6 +134,9 @@ function Login() {
                   type="email"
                   placeholder="Enter your email"
                   className="w-full px-3 outline-none bg-transparent"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -104,6 +154,9 @@ function Login() {
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
                   className="w-full px-3 outline-none bg-transparent"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
                 />
 
                 <button
@@ -121,7 +174,6 @@ function Login() {
 
             {/* OPTIONS */}
             <div className="flex items-center justify-end text-sm">
-
               <button
                 type="button"
                 className="text-black font-medium hover:underline"
@@ -131,18 +183,23 @@ function Login() {
             </div>
 
             {/* LOGIN BUTTON */}
-            <button className="w-full bg-blue-950 hover:bg-gray-900 text-white py-4 rounded-2xl font-semibold text-lg transition duration-300 shadow-lg">
+            <button
+              onClick={handleLogin}
+              className="w-full bg-black hover:bg-gray-900 text-white py-4 rounded-2xl font-semibold text-lg transition duration-300 shadow-lg"
+            >
               Login
             </button>
-          </form>
+          </div>
 
           {/* FOOTER */}
           <p className="text-center text-gray-500 text-sm mt-2">
-            Don't have an account ?
-            <Link 
-            to='/register'
-            className="text-black font-medium hover:underline"
-            > Register now</Link>
+            if you are new user
+            <Link
+              to="/register"
+              className="text-black font-medium hover:underline"
+            >
+              Register
+            </Link>
           </p>
           <p className="text-center text-gray-500 text-sm mt-2">
             © 2026 RentRide. All rights reserved.

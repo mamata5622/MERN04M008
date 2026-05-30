@@ -64,11 +64,14 @@ exports.login = async (req, res) => {
             { expiresIn: "1h" },
           );
 
+          existingUser.toObject()
+          delete existingUser.password;
+
           res.status(200).json({
             success: true,
             message: "successfully login",
             token,
-            user:existingUser
+            user: existingUser
           });
         } else {
           res.status(200).json({ success: false, message: "Invalid password" });
