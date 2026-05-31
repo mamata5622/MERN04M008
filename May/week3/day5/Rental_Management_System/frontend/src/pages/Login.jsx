@@ -27,7 +27,7 @@ function Login() {
         `${import.meta.env.VITE_BASE_URL}/auth/login`,
         formData,
       );
-      
+
       if (res.data.success) {
         const token = res.data.token;
         const user = res.data.user;
@@ -38,9 +38,9 @@ function Login() {
           password: "",
         });
 
-        if(user.role==="user"){
+        if (user.role === "user") {
           navigate("/profile");
-        }else{
+        } else {
           navigate("/admin");
         }
         toast.success(res.data.message);
@@ -57,7 +57,7 @@ function Login() {
       {/* LOGIN CONTAINER */}
       <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
         {/* LEFT SIDE */}
-        <div className="hidden lg:flex flex-col justify-center bg-black text-white p-12 relative">
+        <div className="hidden lg:flex flex-col justify-center bg-blue-950 text-white p-12 relative">
           <div className="absolute top-6 left-6 flex items-center gap-3">
             <div className="bg-white text-black p-2 rounded-xl">
               <Car size={28} />
@@ -185,7 +185,7 @@ function Login() {
             {/* LOGIN BUTTON */}
             <button
               onClick={handleLogin}
-              className="w-full bg-black hover:bg-gray-900 text-white py-4 rounded-2xl font-semibold text-lg transition duration-300 shadow-lg"
+              className="w-full bg-blue-950 hover:bg-blue-900 text-white py-4 rounded-2xl font-semibold text-lg transition duration-300 shadow-lg"
             >
               Login
             </button>
@@ -193,12 +193,12 @@ function Login() {
 
           {/* FOOTER */}
           <p className="text-center text-gray-500 text-sm mt-2">
-            if you are new user
+            Don't have an account ?
             <Link
               to="/register"
-              className="text-black font-medium hover:underline"
+              className="text-blue-500 font-medium hover:underline"
             >
-              Register
+              Register Here
             </Link>
           </p>
           <p className="text-center text-gray-500 text-sm mt-2">

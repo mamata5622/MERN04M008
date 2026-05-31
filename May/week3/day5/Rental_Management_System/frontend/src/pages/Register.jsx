@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Link } from "react-router";
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -64,7 +65,7 @@ function Register() {
       {/* MAIN CONTAINER */}
       <div className="w-full max-w-6xl bg-white rounded-[35px] overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-2">
         {/* LEFT SIDE */}
-        <div className="hidden lg:flex flex-col justify-between bg-black text-white p-14 relative overflow-hidden">
+        <div className="hidden lg:flex flex-col justify-between bg-blue-950 text-white p-14 relative overflow-hidden">
           {/* BG EFFECT */}
           <div className="absolute -top-20 -right-20 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
 
@@ -248,11 +249,12 @@ function Register() {
             <div className="flex gap-4 pt-2">
               <button
                 onClick={handleRegister}
-                className="w-full bg-black text-white py-4 rounded-2xl font-semibold hover:bg-gray-900 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+                className="w-full bg-blue-950 text-white py-4 rounded-2xl font-semibold hover:bg-gray-900 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
               >
                 Register
               </button>
             </div>
+            <p className="text-center text-gray-500">Already have an account ? <Link to="/login" className="text-blue-500 hover:underline">Sign in</Link></p>
           </div>
 
           {/* FOOTER */}
