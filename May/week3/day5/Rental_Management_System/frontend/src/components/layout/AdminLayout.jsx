@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { Outlet, Link, useNavigate } from "react-router";
 
-import { LayoutDashboard, Car, Users, LogOut, PenLine, Clipboard } from "lucide-react";
+import { LayoutDashboard, Car, Users, LogOut, PenLine, Clipboard, Contact } from "lucide-react";
 
 function AdminLayout() {
   const navigate = useNavigate();
@@ -72,10 +72,15 @@ function AdminLayout() {
               <Users size={20} />
               Users
             </Link>
-            <Link to="/admin/bookings" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-800 transition">
-            <Clipboard size={20}/>Bookings</Link>
-            <Link to="/admin/bookings" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-800 transition">
-            <PenLine size={20}/>Rentals</Link>
+
+            <Link
+              to="/admin/contact"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-800 transition"
+            >
+              <Contact size={20} />
+              Contact
+            </Link>
+            
           </div>
         </div>
 

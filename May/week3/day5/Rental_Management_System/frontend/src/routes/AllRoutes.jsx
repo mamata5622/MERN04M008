@@ -11,6 +11,8 @@ import AdminLayout from "../components/layout/AdminLayout";
 import Navbar from "../components/Navbar";
 import PublicLayout from "../components/layout/PublicLayout";
 import AdminVehiclePage from "../pages/admin/AdminVehiclePage";
+import AdminUsersPage from "../pages/admin/AdminUsersPage";
+import AdminContactPage from "../pages/admin/AdminContactPage";
 
 function AllRoutes() {
   return (
@@ -37,8 +39,8 @@ function AllRoutes() {
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="vehicles" element={<AdminVehiclePage />} />
-          <Route path="users" element={<h1>Users Page</h1>} />
-          <Route path="contacts" element={<h1>Contact</h1>} />
+          <Route path="users" element={<h1><AdminUsersPage/></h1>} />
+          <Route path="contact" element={<h1><AdminContactPage/></h1>} />
         </Route>
       </Routes>
     </div>

@@ -17,7 +17,7 @@ myServer.use(
 
 myServer.use("/api",allRoutes)
 
-myServer.use("/run", (res, req) => {
+myServer.use("/run", (req, res) => {
     res.send("my server world")
 })
 
