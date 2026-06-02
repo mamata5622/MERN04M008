@@ -1,7 +1,7 @@
 // layouts/AdminLayout.jsx
 
 import React, { useEffect } from "react";
-import { Outlet, Link, useNavigate } from "react-router";
+import { Outlet, Link, useNavigate, NavLink } from "react-router";
 
 import { LayoutDashboard, Car, Users, LogOut, PenLine, Clipboard, Contact } from "lucide-react";
 
@@ -49,37 +49,52 @@ function AdminLayout() {
           </div>
 
           <div className="space-y-3">
-            <Link
+            <NavLink
               to="/admin"
-              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-800 transition"
+              end
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-3 rounded-xl transition ${
+                  isActive
+                    ? "bg-yellow-500 text-black font-semibold"
+                    : "hover:bg-gray-800 text-white"
+                }`
+              }
             >
               <LayoutDashboard size={20} />
               Dashboard
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/admin/vehicles"
-              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-800 transition"
+              className={({isActive})=>`flex items-center gap-3 px-4 py-3 rounded-xl transition ${isActive ?"bg-yellow-500 text-black font-semibold":"hover:bg-gray-800 text-white" }`}
             >
               <Car size={20} />
               Vehicles
-            </Link>
+            </NavLink>
 
-            <Link
+             <NavLink
               to="/admin/users"
-              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-800 transition"
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-800 transition ${isActive ? "bg-yellow-500 text-black font-semibold" : "hover:bg-gray-800 text-white"}`
+              }
             >
               <Users size={20} />
               Users
-            </Link>
+            </NavLink>
 
-            <Link
-              to="/admin/contact"
-              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-800 transition"
+            <NavLink
+              to="/admin/contacts"
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-3 rounded-xl transition ${
+                  isActive
+                    ? "bg-yellow-500 text-black font-semibold"
+                    : "hover:bg-gray-800 text-white"
+                }`
+              }
             >
               <Contact size={20} />
-              Contact
-            </Link>
+              Contacts
+            </NavLink>
             
           </div>
         </div>

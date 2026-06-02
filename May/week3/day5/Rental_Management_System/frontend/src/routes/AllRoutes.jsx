@@ -12,6 +12,7 @@ import Navbar from "../components/Navbar";
 import PublicLayout from "../components/layout/PublicLayout";
 import AdminVehiclePage from "../pages/admin/AdminVehiclePage";
 import AdminUsersPage from "../pages/admin/AdminUsersPage";
+import ContactUs from "../pages/ContactUs";
 import AdminContactPage from "../pages/admin/AdminContactPage";
 
 function AllRoutes() {
@@ -20,6 +21,7 @@ function AllRoutes() {
       <Routes>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/contact" element={<ContactUs/>} />
 
         <Route element={<PublicLayout />}>
           <Route path="/" element={<Home />} />
@@ -40,7 +42,8 @@ function AllRoutes() {
           <Route index element={<Dashboard />} />
           <Route path="vehicles" element={<AdminVehiclePage />} />
           <Route path="users" element={<h1><AdminUsersPage/></h1>} />
-          <Route path="contact" element={<h1><AdminContactPage/></h1>} />
+          <Route path="contacts" element={<AdminContactPage/>}/>
+          
         </Route>
       </Routes>
     </div>
