@@ -13,6 +13,10 @@ const contactSchema = new mongoose.Schema(
             trim: true,
 
         },
+        phone:{
+            type:Number,
+
+        },
         message: {
             type: String,
             require: true,

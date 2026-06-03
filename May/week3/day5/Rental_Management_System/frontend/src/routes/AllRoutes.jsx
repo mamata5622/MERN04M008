@@ -14,6 +14,7 @@ import AdminVehiclePage from "../pages/admin/AdminVehiclePage";
 import AdminUsersPage from "../pages/admin/AdminUsersPage";
 import ContactUs from "../pages/ContactUs";
 import AdminContactPage from "../pages/admin/AdminContactPage";
+import VehicleDetails from "../pages/VehicleDetails";
 
 function AllRoutes() {
   return (
@@ -27,6 +28,8 @@ function AllRoutes() {
           <Route path="/" element={<Home />} />
 
           <Route path="/vehicles" element={<Vehicles />} />
+          <Route path="/vehicles_detail/:id" element=
+          {<VehicleDetails/>}/>
 
           <Route
             path="/profile"

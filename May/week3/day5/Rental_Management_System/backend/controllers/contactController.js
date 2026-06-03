@@ -3,10 +3,10 @@ const Contact = require("../models/contactModel");
 
 exports.createContact = async (req, res) => {
     try {
-        const { name, email, message } = req.body;
+        const { name, email, phone, message } = req.body;
 
         // vallidation
-        if (!name || !email || !message) {
+        if (!name || !email || !phone || !message) {
             res.status(400).json({
                 success: false,
                 message: "Name, email and message are required.",
@@ -15,6 +15,7 @@ exports.createContact = async (req, res) => {
         const contact = await Contact.create({
             name,
             email,
+            phone,
             message,
         })
         if (!contact) {
@@ -54,3 +55,18 @@ exports.deleteContact = async (req, res) => {
         });
     }
 }
+exports.getContacts = async (req, res) => {
+  try {
+    const contacts = await Contact.find();
+
+    if (!contacts) {
+      res.status(200).json({ success: false, message: "contact not found" });
+    } else {
+      res
+        .status(200)
+        .json({ success: true, message: "successfully fetched", contacts });
+    }
+  } catch (error) {
+    res.status(500).json({ success: false, message: "failed to fetch" });
+  }
+};
