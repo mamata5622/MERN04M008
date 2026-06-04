@@ -21,7 +21,7 @@ exports.createContact = async (req, res) => {
         if (!contact) {
             res.status(200).json({ success: false, message: "failed to create" });
         }
-        res.status(201).json({ success: true, message: "successfully created", vehicle });
+        res.status(201).json({ success: true, message: "successfully created" });
 
     } catch (err) {
         res.status(500).json({
