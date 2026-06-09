@@ -12,7 +12,7 @@ import { FaRegCopyright } from "react-icons/fa";
 function Home() {
   return (
     <>
-      <div className="h-screen bg-black overflow-auto">
+      <div id="home" className="h-screen bg-black overflow-auto">
         <p className="text-white pt-50 text-center font-semibold text-[35px]">
           Hello, I'm
         </p>
@@ -38,12 +38,30 @@ function Home() {
             <FaAngleDoubleDown />
           </div>
         </div>
-        <About />
-        <Education />
-        <Skills />
-        <Project />
-        <Achievements />
-        <Contact />
+        <div id="about">
+          <About />
+        </div>
+
+        <div id="education">
+          <Education />
+        </div>
+
+        <div id="skills">
+          <Skills />
+        </div>
+
+        <div id="project">
+          <Project />
+        </div>
+
+        <div id="achievement">
+          <Achievements />
+        </div>
+
+        <div id="contact">
+          <Contact />
+        </div>
+
         <div className="h-10 border border-gray-800 flex items-center justify-center text-gray-500">
           <p className="">
             <FaRegCopyright />

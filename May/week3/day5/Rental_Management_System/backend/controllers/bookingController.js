@@ -79,7 +79,7 @@ exports.getMyBookings = async (req, res) => {
 
 exports.getAllBookings = async (req, res) => {
     try {
-        const admin = res.user;
+        
         const allBookings = await Booking.find().populate("user").populate("vehicles")
         if (!allBookings) {
             return res
