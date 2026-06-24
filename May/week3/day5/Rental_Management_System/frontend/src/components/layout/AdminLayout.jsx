@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { Outlet, Link, useNavigate, NavLink } from "react-router";
 
-import { LayoutDashboard, Car, Users, LogOut, PenLine, Clipboard, Contact } from "lucide-react";
+import { LayoutDashboard, Car, Users, LogOut, Phone } from "lucide-react";
 
 function AdminLayout() {
   const navigate = useNavigate();
@@ -34,10 +34,12 @@ function AdminLayout() {
       <div className="w-[260px] bg-black text-white p-5 flex flex-col justify-between">
         <div>
           <div className="mb-10 border-b border-gray-800 pb-5">
-            <h1 
-            onClick={()=>navigate("/")}
-            className="text-3xl font-bold cursor-pointer"
-            >RentRide</h1>
+            <h1
+              onClick={() => navigate("/")}
+              className="text-3xl font-bold cursor-pointer"
+            >
+              RentRide
+            </h1>
 
             <p className="text-gray-400 text-sm mt-1">Admin Panel</p>
           </div>
@@ -66,13 +68,19 @@ function AdminLayout() {
 
             <NavLink
               to="/admin/vehicles"
-              className={({isActive})=>`flex items-center gap-3 px-4 py-3 rounded-xl transition ${isActive ?"bg-yellow-500 text-black font-semibold":"hover:bg-gray-800 text-white" }`}
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-3 rounded-xl transition ${
+                  isActive
+                    ? "bg-yellow-500 text-black font-semibold"
+                    : "hover:bg-gray-800 text-white"
+                }`
+              }
             >
               <Car size={20} />
               Vehicles
             </NavLink>
 
-             <NavLink
+            <NavLink
               to="/admin/users"
               className={({ isActive }) =>
                 `flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-800 transition ${isActive ? "bg-yellow-500 text-black font-semibold" : "hover:bg-gray-800 text-white"}`
@@ -80,6 +88,15 @@ function AdminLayout() {
             >
               <Users size={20} />
               Users
+            </NavLink>
+            <NavLink
+              to="/admin/all-bookings"
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-800 transition ${isActive ? "bg-yellow-500 text-black font-semibold" : "hover:bg-gray-800 text-white"}`
+              }
+            >
+              <Users size={20} />
+              Bookings
             </NavLink>
 
             <NavLink
@@ -92,10 +109,9 @@ function AdminLayout() {
                 }`
               }
             >
-              <Contact size={20} />
+              <Phone size={20} />
               Contacts
             </NavLink>
-            
           </div>
         </div>
 

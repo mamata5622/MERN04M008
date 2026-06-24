@@ -1,18 +1,18 @@
-const express = require("express")
+const express=require("express")
 const connectDB = require("./config/db")
 const allRoutes = require("./routes/allRoutes")
 require("dotenv").config()
 
-const myServer=express()
 connectDB()
-myServer.use(express.json())
+const myServer=express()
+
 myServer.use("/api",allRoutes)
 
 myServer.use("/run",(req,res)=>{
-    res.send("Hello")
+    res.send("hello everyone")
 })
-const port=process.env.PORT
 
+const port=process.env.PORT
 myServer.listen(port,()=>{
-    console.log("welcome to my server!",port)
-})
+    console.log("my server is running",port)
+});

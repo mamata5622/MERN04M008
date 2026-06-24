@@ -15,6 +15,7 @@ import AdminUsersPage from "../pages/admin/AdminUsersPage";
 import ContactUs from "../pages/ContactUs";
 import AdminContactPage from "../pages/admin/AdminContactPage";
 import VehicleDetails from "../pages/VehicleDetails";
+import AdminBookings from "../pages/admin/AdminBookings";
 
 function AllRoutes() {
   return (
@@ -46,7 +47,7 @@ function AllRoutes() {
           <Route path="vehicles" element={<AdminVehiclePage />} />
           <Route path="users" element={<h1><AdminUsersPage/></h1>} />
           <Route path="contacts" element={<AdminContactPage/>}/>
-          
+          <Route path="all-bookings" element={<AdminBookings/>} />
         </Route>
       </Routes>
     </div>
