@@ -1,4 +1,8 @@
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+
 import {
   FaEnvelope,
   FaLock,
@@ -14,10 +18,71 @@ import { FcGoogle } from "react-icons/fc";
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+
+      const res = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/auth/login`,
+        formData,
+      );
+
+      if (res.data.success) {
+        const token = res.data.token;
+        const user = res.data.user;
+
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
+
+        setFormData({
+          email: "",
+          password: "",
+        });
+
+        toast.success(res.data.message);
+
+        if (user.role === "user") {
+          navigate("/profile");
+        } else if (user.role === "organizer") {
+          navigate("/organizer");
+        } else if (user.role === "admin") {
+          navigate("/admin");
+        }
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+
+      toast.error(error.response?.data?.message || "Login Failed");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FAF7F0] flex items-center justify-center p-4 lg:p-8">
       <div className="w-full max-w-7xl bg-white rounded-3xl overflow-hidden shadow-2xl grid lg:grid-cols-2">
-
         {/* LEFT SIDE */}
         <div
           className="hidden lg:flex relative flex-col justify-between p-10 text-white"
@@ -50,8 +115,8 @@ export default function Login() {
             </h2>
 
             <p className="mt-6 text-lg text-gray-200 max-w-md">
-              Manage events, track bookings, and connect with
-              attendees effortlessly through PlanGo.
+              Manage events, track bookings, and connect with attendees
+              effortlessly through PlanGo.
             </p>
           </div>
 
@@ -88,54 +153,50 @@ export default function Login() {
 
         {/* RIGHT SIDE */}
         <div className="flex flex-col justify-center p-6 md:p-10 lg:p-14">
-
-
           {/* Header */}
           <div className="text-center mb-10">
-            <h2 className="text-4xl font-bold text-[#5C4033]">
-              Sign In
-            </h2>
+            <h2 className="text-4xl font-bold text-[#5C4033]">Sign In</h2>
 
-            <p className="mt-2 text-[#B0926A]">
-              Access your PlanGo account
-            </p>
+            <p className="mt-2 text-[#B0926A]">Access your PlanGo account</p>
           </div>
 
           {/* Form */}
-          <form className="space-y-5">
-
+          <form className="space-y-5" onSubmit={handleLogin}>
+            {" "}
             {/* Email */}
             <div className="relative">
               <FaEnvelope className="absolute left-4 top-5 text-[#B0926A]" />
 
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Email Address"
                 className="w-full border border-[#EADBC8] rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#B0926A] outline-none"
               />
             </div>
-
             {/* Password */}
             <div className="relative">
               <FaLock className="absolute left-4 top-5 text-[#B0926A]" />
 
               <input
                 type={showPassword ? "text" : "password"}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="Password"
                 className="w-full border border-[#EADBC8] rounded-2xl py-4 pl-12 pr-12 focus:ring-2 focus:ring-[#B0926A] outline-none"
               />
 
               <button
                 type="button"
-                onClick={() =>
-                  setShowPassword(!showPassword)
-                }
+                onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-4 top-5 text-[#B0926A]"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
-
             {/* Remember & Forgot */}
             <div className="flex justify-between items-center text-sm">
               <label className="flex items-center gap-2 text-[#5C4033]">
@@ -150,25 +211,22 @@ export default function Login() {
                 Forgot Password?
               </a>
             </div>
-
             {/* Login Button */}
             <button
+              type="submit"
+              disabled={loading}
               className="w-full py-4 rounded-2xl bg-[#5C4033]
               text-white font-semibold hover:bg-[#3A2D28]
-              transition-all duration-300"
+              transition-all duration-300 disabled:opacity-60"
             >
-              Login
+              {loading ? "Logging In..." : "Login"}
             </button>
-
             {/* Divider */}
             <div className="flex items-center gap-3">
               <div className="flex-1 h-[1px] bg-[#EADBC8]"></div>
-              <span className="text-gray-500 text-sm">
-                OR
-              </span>
+              <span className="text-gray-500 text-sm">OR</span>
               <div className="flex-1 h-[1px] bg-[#EADBC8]"></div>
             </div>
-
             {/* Google Login */}
             <button
               type="button"
@@ -179,18 +237,13 @@ export default function Login() {
               <FcGoogle size={22} />
               Continue with Google
             </button>
-
             {/* Register Link */}
             <p className="text-center text-[#5C4033]">
               Don't have an account?
-              <a
-                href="/register"
-                className="ml-2 text-[#B0926A] font-semibold"
-              >
+              <a href="/register" className="ml-2 text-[#B0926A] font-semibold">
                 Register
               </a>
             </p>
-
           </form>
         </div>
       </div>

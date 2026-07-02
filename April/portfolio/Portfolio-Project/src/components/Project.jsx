@@ -1,45 +1,119 @@
-import React from 'react'
+import React from "react";
+import {
+  FaShoppingCart,
+  FaFilm,
+  FaCar,
+  FaExternalLinkAlt,
+  FaGithub,
+} from "react-icons/fa";
 
 function Project() {
-  return (
-    <div className='mt-30'>
-      <h1 className="text-center text-[40px] font-bold text-sky-800">Project</h1>
-      <p className="text-[18px] text-center text-gray-500">My work</p>
-      {/* project container */}
-      <ul className='mt-20 text-white ml-12 mr-12 lg:ml-50 lg:mr-50 grid grid-cols-2 lg:grid lg:grid-cols-3 gap-5'>
-        {/* project1 */}
-        <li className='border rounded-xl p-5 mt-5 bg-sky-300/10'>
-          <h2 className='text-[20px] font-bold'>Blinkit Clone (Grocery Delivery Website) </h2>
-          <p className='text-[15px] text-gray-500 mt-2 text-justify'>
-            Designed and developed a scalable quick-commerce web application inspired by Blinkit, enabling users to browse groceries, add items to cart, place orders, and track deliveries in real time. Integrated authentication, database management, and responsive design principles to enhance user experience.
-          </p>
-          <ul className='flex flex-wrap text-blue-500 gap-3 mt-3 text-[15px]'>
-            <li className='bg-sky-200/10 rounded-md p-1'>HTML</li>
-            <li className='bg-sky-200/10 rounded-md p-1'>Tailwind CSS</li>
-            <li className='bg-sky-200/10 rounded-md p-1'>JavaScript</li>
-          </ul>
-        </li>
-        {/* project2 */}
-        <li className='border rounded-xl p-5 mt-5 bg-sky-300/10'>
-          <h2 className='text-[20px] font-bold'>HD Movies (Movie Website)</h2>
-        </li>
-        {/* project3 */}
-        <li className='border rounded-xl p-5 mt-5 bg-sky-300/10'>
-          <h2 className='text-[20px] font-bold'>Rental Management System</h2>
-          <p className='text-[15px] text-gray-500 mt-2 text-justify'>
-            Built a full-stack Vehicle Rental Management System where users can view and rent available vehicles, and admins can manage vehicles, bookings, and customer records through a dedicated admin dashboard.
-          </p>
-          <ul className='flex flex-wrap text-blue-500 gap-3 mt-3 text-[15px]'>
-            <li className='bg-sky-200/10 rounded-md p-1'>HTML/TailwindCSS/JS</li>
-            <li className='bg-sky-200/10 rounded-md p-1'>React.js</li>
-            <li className='bg-sky-200/10 rounded-md p-1'>MongoDB</li>
-            <li className='bg-sky-200/10 rounded-md p-1'>Node.js</li>
+  const projects = [
+    {
+      icon: <FaShoppingCart />,
+      title: "Blinkit Clone",
+      description:
+        "Developed a full-stack grocery delivery web application inspired by Blinkit with authentication, shopping cart, order management, and responsive user interface.",
+      technologies: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Tailwind CSS",
+      ],
+      github: "#",
+      live: "#",
+    },
+    {
+      icon: <FaFilm />,
+      title: "HD Movies",
+      description:
+        "A responsive movie streaming interface where users can browse trending movies, search titles, and view movie information with a clean user experience.",
+      technologies: ["React.js", "JavaScript", "Tailwind CSS"],
+      github: "#",
+      live: "#",
+    },
+    {
+      icon: <FaCar />,
+      title: "Rental Management System",
+      description:
+        "Built a complete vehicle rental platform where users can rent vehicles and administrators can manage vehicles, bookings, and customers through an admin dashboard.",
+      technologies: ["React.js", "Node.js", "MongoDB", "Express.js"],
+      github: "#",
+      live: "#",
+    },
+  ];
 
-          </ul>
-        </li>
-      </ul>
-    </div>
-  )
+  return (
+    <section
+      id="project"
+      className="relative bg-[#020617] py-24 px-6 overflow-hidden"
+    >
+      {/* Background Glow */}
+
+      <div className="absolute -top-24 -left-24 w-80 h-80 bg-sky-500/10 rounded-full blur-[120px]" />
+
+      <div className="absolute top-0 right-0 w-72 h-72 bg-blue-600/10 rounded-full blur-[140px]" />
+
+      <div className="absolute bottom-0 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-[130px]" />
+
+      <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-sky-600/10 rounded-full blur-[150px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Heading */}
+
+        <div className="text-center mb-20">
+          <h1 className="text-5xl font-bold text-white">
+            My <span className="text-sky-500">Projects</span>
+          </h1>
+
+          <p className="text-gray-400 mt-5 text-lg">
+            Some of the projects I have built during my learning journey.
+          </p>
+        </div>
+
+        {/* Projects */}
+
+        <div className="grid lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="bg-white/5 backdrop-blur-lg border border-sky-700/40 rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:border-sky-400 hover:shadow-[0_0_35px_rgba(14,165,233,0.35)]"
+            >
+              {/* Icon */}
+
+              <div className="w-16 h-16 rounded-full bg-sky-600 flex items-center justify-center text-white text-3xl mb-6">
+                {project.icon}
+              </div>
+
+              {/* Title */}
+
+              <h2 className="text-2xl font-bold text-white">{project.title}</h2>
+
+              {/* Description */}
+
+              <p className="text-gray-400 mt-5 leading-8">
+                {project.description}
+              </p>
+
+              {/* Technologies */}
+
+              <div className="flex flex-wrap gap-3 mt-8">
+                {project.technologies.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-2 rounded-full border border-sky-600 bg-sky-500/10 text-sky-300 text-sm"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default Project
+export default Project;

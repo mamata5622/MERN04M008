@@ -1,4 +1,7 @@
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 import {
   FaUser,
   FaEnvelope,
@@ -14,10 +17,63 @@ import {
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+
+      const res = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/auth/register`,
+        formData,
+      );
+
+      if (res.data.success) {
+        toast.success(res.data.message);
+
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          password: "",
+        });
+
+        navigate("/login");
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+
+      toast.error(error.response?.data?.message || "Registration Failed");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FAF7F0] flex items-center justify-center p-4 lg:p-8">
       <div className="w-full max-w-7xl bg-white rounded-3xl shadow-2xl overflow-hidden grid lg:grid-cols-2">
-
         {/* LEFT SIDE */}
         <div
           className="relative hidden lg:flex flex-col justify-between p-10 text-white"
@@ -51,9 +107,9 @@ export default function Register() {
             </h2>
 
             <p className="text-lg text-gray-200 max-w-md">
-              Discover, organize and manage events effortlessly.
-              Whether it's a conference, wedding, concert or meetup,
-              PlanGo helps you bring people together.
+              Discover, organize and manage events effortlessly. Whether it's a
+              conference, wedding, concert or meetup, PlanGo helps you bring
+              people together.
             </p>
           </div>
 
@@ -90,15 +146,13 @@ export default function Register() {
           {/* Quote */}
           <div className="relative z-10 mt-10">
             <p className="italic text-lg">
-              "Great events don't just happen,
-              they are planned with passion."
+              "Great events don't just happen, they are planned with passion."
             </p>
           </div>
         </div>
 
         {/* RIGHT SIDE */}
         <div className="p-6 md:p-10 lg:p-14">
-
           {/* Header */}
           <div className="text-center mb-10">
             <h2 className="text-4xl font-bold text-[#5C4033]">
@@ -111,47 +165,56 @@ export default function Register() {
           </div>
 
           {/* Form */}
-          <form className="space-y-5">
-
+          <form className="space-y-5" onSubmit={handleRegister}>
+            {" "}
             {/* Name */}
             <div className="relative">
               <FaUser className="absolute left-4 top-4 text-[#B0926A]" />
 
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Full Name"
                 className="w-full pl-12 py-4 border border-[#EADBC8] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B0926A]"
               />
             </div>
-
             {/* Email */}
             <div className="relative">
               <FaEnvelope className="absolute left-4 top-4 text-[#B0926A]" />
 
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Email Address"
                 className="w-full pl-12 py-4 border border-[#EADBC8] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B0926A]"
               />
             </div>
-
             {/* Phone */}
             <div className="relative">
               <FaPhone className="absolute left-4 top-4 text-[#B0926A]" />
 
               <input
-                type="number"
+                type="text"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 placeholder="Phone Number"
                 className="w-full pl-12 py-4 border border-[#EADBC8] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B0926A]"
               />
             </div>
-
             {/* Password */}
             <div className="relative">
               <FaLock className="absolute left-4 top-4 text-[#B0926A]" />
 
               <input
                 type={showPassword ? "text" : "password"}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="Password"
                 className="w-full pl-12 py-4 border border-[#EADBC8] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B0926A]"
               />
@@ -164,31 +227,29 @@ export default function Register() {
                 👁
               </button>
             </div>
-
             {/* Role */}
             <select
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
               className="w-full py-4 px-4 border border-[#EADBC8] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B0926A]"
             >
               <option value="user">User</option>
-              <option value="organisation">Organisation</option>
+              <option value="organizer">Organizer</option>
               <option value="admin">Administrator</option>
             </select>
-
             {/* Button */}
             <button
+              type="submit"
+              disabled={loading}
               className="w-full bg-[#5C4033] hover:bg-[#3A2D28]
-              text-white py-4 rounded-2xl font-semibold
-              transition-all duration-300 hover:scale-[1.02]"
+              text-white py-4 rounded-2xl font-semibold transition-all duration-300 hover:scale-[1.02]disabled:opacity-60"
             >
-              Register
+              {loading ? "Registering..." : "Register"}
             </button>
-
             <p className="text-center text-[#5C4033]">
               Already have an account?
-              <a
-                href="/login"
-                className="ml-2 font-semibold text-[#B0926A]"
-              >
+              <a href="/login" className="ml-2 font-semibold text-[#B0926A]">
                 Login
               </a>
             </p>

@@ -8,6 +8,7 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import OrganizerLayout from "../components/layouts/OrganizerLayout";
 
 function AllRoutes() {
   return (
@@ -25,6 +26,10 @@ function AllRoutes() {
 
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+
+      {/* Organizer Layout */}
+
+      <Route path="/organizer" element={<OrganizerLayout/>}></Route>
 
     </Routes>
   );
