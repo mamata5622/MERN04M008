@@ -1,16 +1,26 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
+import {
+  FaEnvelope,
+  FaLock,
+  FaSignInAlt,
+  FaFilm,
+  FaPlayCircle,
+  FaStar,
+  FaUsers,
+} from "react-icons/fa";
 
 function Login() {
   const navigate = useNavigate();
+
   const [existdata, setExistdata] = useState({
     email: "",
     password: "",
   });
 
   const handleChange = (e) => {
-    const { value, name } = e.target;
+    const { name, value } = e.target;
 
     setExistdata((prev) => ({
       ...prev,
@@ -20,80 +30,188 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let existingLocaldata = JSON.parse(localStorage.getItem("users"));
-    console.log(existingLocaldata);
 
-    const userBasedOnEmail = existingLocaldata.find(
-      (user) => user.email === existdata.email,
-    );
-    if (userBasedOnEmail) {
-      if (userBasedOnEmail.password === existdata.password) {
-        localStorage.setItem("loginUser",JSON.stringify(userBasedOnEmail))
-        localStorage.setItem("isLogin",true)
-        navigate("/profile")
-      } else {
-        toast.success("login successful")
-      }
-    } else {
-      toast.error("Invalid email")
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const user = users.find((item) => item.email === existdata.email);
+
+    if (!user) {
+      toast.error("Email not found");
+      return;
     }
-    setExistdata({
-      email:"",
-      password:""
-    })
+
+    if (user.password !== existdata.password) {
+      toast.error("Incorrect Password");
+      return;
+    }
+
+    localStorage.setItem("loginUser", JSON.stringify(user));
+    localStorage.setItem("isLogin", true);
+
+    toast.success("Login Successful");
+
+    navigate("/profile");
   };
+
   return (
-    <div className="w-full absolute flex justify-center">
-      <img
-        src="https://getwallpapers.com/wallpaper/full/6/2/e/1267879-movie-poster-wallpaper-1920x1080-for-hd.jpg"
-        alt=""
-        className="absolute"
-      />
-      <div className="absolute mt-40 lg:mt-60 lg:text-[20px] bg-black/40 p-2 rounded-md text-white">
-        <div>
-          <h1 className="text-center font-bold text-3xl border-b-3 border-gray-700 text-shadow-2xs">
-            Login Here!
-          </h1>
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black ">
+      <div className="container mx-auto flex min-h-screen items-center px-6 ">
+        {/* ================= Left ================= */}
 
-          <label htmlFor="">Email : </label>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="mt-10"
-            name="email"
-            value={existdata.email}
-            onChange={handleChange}
-          />
-          <br />
+        <div className="hidden lg:flex w-1/2 flex-col mt-15">
+          <div className="flex items-center gap-3">
+            <FaFilm className="text-5xl text-orange-500" />
 
-          <label htmlFor="">password : </label>
-          <input
-            type="password"
-            placeholder="Enter your password"
-            className="mt-1"
-            name="password"
-            value={existdata.password}
-            onChange={handleChange}
-          />
-
-          <br />
-          <div className="flex justify-center">
-            <button
-              onClick={handleSubmit}
-              className=" pt-1 pb-1 rounded bg-white/50 font-bold text-black mt-3 pl-20 pr-20 "
-            >
-              Login
-            </button>
+            <h1 className="text-5xl font-extrabold text-white">
+              Movie<span className="text-orange-500">Verse</span>
+            </h1>
           </div>
-          <p className="text-center font-medium text-yellow-600">
-            Sign In Here
+
+          <h2 className="mt-8 text-6xl font-bold leading-tight text-white">
+            Unlimited
+            <span className="text-yellow-400"> Movies</span>
+            <br />
+            Unlimited
+            <span className="text-green-500"> Entertainment</span>
+          </h2>
+
+          <p className="mt-6 max-w-xl text-lg leading-8 text-gray-300">
+            Discover thousands of blockbuster movies, trending TV shows and
+            create your own watchlist.
           </p>
-          <p className="text-yellow-600 text-center font-mono mt-3 mb-3">
-            Don't have an account ?{" "}
-            <Link to="/register" className="text-black">
-              Register
+
+          <div className="mt-10 space-y-5">
+            <div className="flex items-center gap-4">
+              <FaPlayCircle className="text-orange-500 text-2xl" />
+
+              <span className="text-lg text-white">HD Movies</span>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <FaStar className="text-yellow-400 text-2xl" />
+
+              <span className="text-lg text-white">Top Rated Collections</span>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <FaUsers className="text-green-500 text-2xl" />
+
+              <span className="text-lg text-white">Millions of Users</span>
+            </div>
+          </div>
+
+          <div className="mt-14 flex gap-10">
+            <div>
+              <h2 className="text-4xl font-bold text-orange-500">10K+</h2>
+
+              <p className="text-gray-400">Movies</p>
+            </div>
+
+            <div>
+              <h2 className="text-4xl font-bold text-yellow-400">500+</h2>
+
+              <p className="text-gray-400">Shows</p>
+            </div>
+
+            <div>
+              <h2 className="text-4xl font-bold text-green-500">1M+</h2>
+
+              <p className="text-gray-400">Users</p>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= Right ================= */}
+
+        <div className="flex w-full justify-center lg:w-1/2 mt-20">
+          {/* Login Card */}
+
+          <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
+            <div className="mb-6 flex justify-center">
+              <div className="rounded-full bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 p-5">
+                <FaFilm className="text-3xl text-white" />
+              </div>
+            </div>
+
+            <h2 className="text-center text-4xl font-bold text-white">
+              Welcome Back
+            </h2>
+
+            <p className="mt-2 text-center text-gray-300">
+              Login to continue your movie journey.
+            </p>
+
+            <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+              {/* Email */}
+
+              <div>
+                <label className="mb-2 block text-white">Email</label>
+
+                <div className="flex items-center rounded-xl border border-white/10 bg-white/10 px-4">
+                  <FaEnvelope className="text-yellow-400" />
+
+                  <input
+                    type="email"
+                    name="email"
+                    value={existdata.email}
+                    onChange={handleChange}
+                    placeholder="Enter your email"
+                    className="w-full bg-transparent p-3 text-white outline-none placeholder:text-gray-400"
+                  />
+                </div>
+              </div>
+
+              {/* Password */}
+
+              <div>
+                <label className="mb-2 block text-white">Password</label>
+
+                <div className="flex items-center rounded-xl border border-white/10 bg-white/10 px-4">
+                  <FaLock className="text-green-400" />
+
+                  <input
+                    type="password"
+                    name="password"
+                    value={existdata.password}
+                    onChange={handleChange}
+                    placeholder="Enter your password"
+                    className="w-full bg-transparent p-3 text-white outline-none placeholder:text-gray-400"
+                  />
+                </div>
+              </div>
+
+              {/* Login Button */}
+
+              <button
+                type="submit"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 py-3 text-lg font-semibold text-white transition duration-300 hover:scale-105"
+              >
+                <FaSignInAlt />
+                Login Now
+              </button>
+            </form>
+
+            {/* Divider */}
+
+            <div className="my-6 flex items-center">
+              <div className="h-px flex-1 bg-gray-600"></div>
+
+              <span className="px-4 text-gray-400">OR</span>
+
+              <div className="h-px flex-1 bg-gray-600"></div>
+            </div>
+
+            {/* Register */}
+
+            <p className="text-center text-gray-300">Don't have an account?</p>
+
+            <Link
+              to="/register"
+              className="mt-3 block text-center font-semibold text-yellow-400 transition hover:text-orange-500"
+            >
+              Create New Account
             </Link>
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -101,4 +219,3 @@ function Login() {
 }
 
 export default Login;
-  
